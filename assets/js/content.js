@@ -4,7 +4,7 @@
 // a CSV list of e-mails
 //----------------------------
 
-var composeURL = 'https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&to=<to>';
+var composeURL = 'https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&bcc=<to>';
 
 //----------------------------
 // Batch reply button
