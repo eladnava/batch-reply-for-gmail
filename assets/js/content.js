@@ -1,5 +1,5 @@
 // Define compose URL <to> will be replaces with a CSV list of e-mails
-var composeURL = 'https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&bcc=<to>';
+var composeURL = 'https://mail.google.com/mail/u/<accountNumber>/?view=cm&fs=1&tf=1&source=mailto&bcc=<to>';
 
 // Batch reply button
 function getBatchReplyButton() {
@@ -108,9 +108,26 @@ function prepareBatchReply() {
         // Convert to string and URL-encode
         emails = encodeURIComponent(emails.join(', '));
 
-        // Open it in a new window (replace <to> with emails)
-        window.open(composeURL.replace('<to>', emails));
+        // Prepare URL
+        var url = composeURL;
+
+        // Insert <to> (list of csv e-mails)
+        url = url.replace('<to>', emails);
+
+        // Insert logged in account number
+        url = url.replace('<accountNumber>', getLoggedInAccountNumber());
+
+        // Open window
+        window.open(url);
     }
+}
+
+function getLoggedInAccountNumber() {
+    // Extract account number from page path
+    var result = /mail\/u\/([0-9]+)\//g.exec(window.location.pathname);
+
+    // All done
+    return result[1];
 }
 
 // Listen for events from the background script
