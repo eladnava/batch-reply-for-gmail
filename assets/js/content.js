@@ -29,7 +29,7 @@ function getMenuContainer() {
 // Batch reply button HTML
 function getBatchReplyButtonHTML() {
     return '<div class="J-J5-Ji">' +
-        '<div class="batch-reply T-I T-I-ax7 batch-reply" role="button" tabindex="0">' +
+        '<div class="batch-reply T-I T-I-ax7 batch-reply" role="button" tabindex="0" style="color: #ffffffc7; -webkit-user-select: none;">' +
         'Reply' +
         '</div>' +
         '</div>';
