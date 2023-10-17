@@ -8,7 +8,7 @@ function getBatchReplyButton() {
 
 // Get checked conversations
 function getCheckedConversations() {
-    return $("div[aria-checked='true']");
+    return $("tbody div[aria-checked='true'][role='checkbox']");
 }
 
 // Get conversation e-mails
