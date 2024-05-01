@@ -130,16 +130,11 @@ function getLoggedInAccountNumber() {
     return result[1];
 }
 
-// Listen for events from the background script
-chrome.extension.onMessage.addListener(
-    function (request, sender, sendResponse) {
-        // Injection requested?
-        if (request.inject) {
-            // Refresh button
-            refreshBatchReplyButton();
-        }
-    }
-);
+// Try to inject button every X seconds
+setInterval(function() {
+    // Try to inject button
+    refreshBatchReplyButton();
+}, 2000);
 
 // Handle HTML5 page change
 window.onpopstate = history.onpushstate = function (e) {
